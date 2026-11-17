@@ -1,20 +1,33 @@
 package com.quick.freshfoodgo.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseActivity: AppCompatActivity() {
+abstract class BaseActivity<VB: ViewBinding>: AppCompatActivity() {
+
+    private var _binding:VB? = null
+    protected val binding :VB
+        get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
+        _binding = inflateBinding(layoutInflater)
+        setContentView(binding.root)
         initView()
 
     }
+
+    abstract fun inflateBinding(layoutInflater: LayoutInflater): VB
 
     open fun initView(){
 
     }
 
-    abstract fun getLayoutId(): Int
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
+    }
+
 }

@@ -4,16 +4,19 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.quick.freshfoodgo.R
+import com.quick.freshfoodgo.base.BaseActivity
+import com.quick.freshfoodgo.databinding.ActivityGuideBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-class GuideActivity: AppCompatActivity() {
+class GuideActivity: BaseActivity<ActivityGuideBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge(
@@ -22,6 +25,10 @@ class GuideActivity: AppCompatActivity() {
         )
         setContentView(R.layout.activity_guide)
         waitEnter()
+    }
+
+    override fun inflateBinding(layoutInflater: LayoutInflater): ActivityGuideBinding {
+        return ActivityGuideBinding.inflate(layoutInflater)
     }
 
     private fun waitEnter() {

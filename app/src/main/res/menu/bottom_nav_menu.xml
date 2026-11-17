@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_page"
+        android:icon="@drawable/home_page_check"
+        android:title="首页" />
+    <item
+        android:id="@+id/found_page"
+        android:icon="@drawable/found_page_check"
+        android:title="发现" />
+    <item
+        android:id="@+id/buy_car_page"
+        android:icon="@drawable/car_page_check"
+        android:title="购物车" />
+    <item
+        android:id="@+id/collect_page"
+        android:icon="@drawable/collect_page_check"
+        android:title="收藏" />
+    <item
+        android:id="@+id/me_page"
+        android:icon="@drawable/me_page_check"
+        android:title="我的" />
 
 
 </menu>

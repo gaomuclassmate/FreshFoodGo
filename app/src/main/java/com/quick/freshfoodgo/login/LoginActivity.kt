@@ -3,6 +3,7 @@ package com.quick.freshfoodgo.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 
 import androidx.activity.enableEdgeToEdge
@@ -13,7 +14,7 @@ import com.quick.freshfoodgo.R
 import com.quick.freshfoodgo.base.BaseActivity
 import com.quick.freshfoodgo.databinding.ActivityLoginBinding
 
-class LoginActivity: BaseActivity() {
+class LoginActivity: BaseActivity<ActivityLoginBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,10 @@ class LoginActivity: BaseActivity() {
             view.setPadding(0, 0, 0, bars.bottom)
             insets
         }
+    }
+
+    override fun inflateBinding(layoutInflater: LayoutInflater): ActivityLoginBinding {
+        return ActivityLoginBinding.inflate(layoutInflater)
     }
 
     override fun initView() {
@@ -47,7 +52,5 @@ class LoginActivity: BaseActivity() {
 
     }
 
-    override fun getLayoutId(): Int {
-        return  R.layout.activity_login
-    }
+
 }

@@ -9,4 +9,7 @@
     <string name="third_login">或用第三方账号登录</string>
     <string name="wechat_log">微信登录</string>
     <string name="qq_log">QQ登录</string>
+    <string name="input_phone_num">输入手机号码</string>
+    <string name="input_phone">请输入手机号</string>
+    <string name="re_send_code">重新发送验证码</string>
 </resources>
