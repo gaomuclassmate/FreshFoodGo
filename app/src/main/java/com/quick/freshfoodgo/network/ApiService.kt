@@ -8,6 +8,8 @@ import retrofit2.http.Query
 
 interface ApiService {
 
+    suspend fun login()
+
     // 示例：获取水果列表
     @GET("fruit/list")
     suspend fun getFruitList(): Response<FruitResponse>

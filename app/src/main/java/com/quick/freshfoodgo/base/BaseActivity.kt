@@ -16,7 +16,8 @@ abstract class BaseActivity<VB: ViewBinding>: AppCompatActivity() {
         _binding = inflateBinding(layoutInflater)
         setContentView(binding.root)
         initView()
-
+        initVarible()
+        initAction()
     }
 
     abstract fun inflateBinding(layoutInflater: LayoutInflater): VB
@@ -24,6 +25,9 @@ abstract class BaseActivity<VB: ViewBinding>: AppCompatActivity() {
     open fun initView(){
 
     }
+    open fun initAction(){}
+
+    open fun initVarible(){}
 
     override fun onDestroy() {
         _binding = null

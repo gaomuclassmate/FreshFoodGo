@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 /**
  * 提高请求接口实例
  */
-class MyRetrofit {
+object MyRetrofit {
 
     // 你的后端基础地址，末尾必须带 /
     private  val BASE_URL = "https://xxx.xxx.com/api/"
