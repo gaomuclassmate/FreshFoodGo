@@ -12,4 +12,7 @@
     <string name="input_phone_num">输入手机号码</string>
     <string name="input_phone">请输入手机号</string>
     <string name="re_send_code">重新发送验证码</string>
+    <string name="search">搜索</string>
+    <string name="today_youhui">今日优惠</string>
+    <string name="changxiao">畅销商品</string>
 </resources>

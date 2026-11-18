@@ -4,6 +4,7 @@ pluginManagement {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url "https://jitpack.io" }
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -16,6 +17,7 @@ dependencyResolutionManagement {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url "https://jitpack.io" }
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
         google()
         mavenCentral()
     }
