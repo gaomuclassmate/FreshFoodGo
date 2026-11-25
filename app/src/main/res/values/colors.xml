@@ -13,4 +13,5 @@
     <color name="guide_bg">#ff69B074</color>
     <color name="login_btn_bg1">#6285ED</color>
     <color name="login_btn_bg2">#5267AD</color>
+    <color name="product_bg">#F2F3F2</color>
 </resources>

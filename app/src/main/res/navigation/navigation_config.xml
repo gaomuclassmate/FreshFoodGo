@@ -9,11 +9,21 @@
     <fragment
         android:id="@+id/home_page"
         android:name="com.quick.freshfoodgo.fragment.HomePageFragment"
-        android:label="HomePageFragment" />
+        android:label="HomePageFragment" >
+        <action
+            android:id="@+id/action_home_page_to_foodDetailFragment"
+            app:destination="@id/foodDetailFragment" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/found_page"
         android:name="com.quick.freshfoodgo.fragment.FoundPageFragment"
-        android:label="FoundPageFragment" />
+        android:label="FoundPageFragment">
+        <action
+            android:id="@+id/action_found_page_to_categoryProductsFragment"
+            app:destination="@id/categoryProductsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/buy_car_page"
@@ -30,4 +40,20 @@
         android:id="@+id/me_page"
         android:name="com.quick.freshfoodgo.fragment.MePageFragment"
         android:label="MePageFragment" />
+    <fragment
+        android:id="@+id/categoryProductsFragment"
+        android:name="com.quick.freshfoodgo.fragment.CategoryProductsFragment"
+        android:label="CategoryProductsFragment">
+        <action
+            android:id="@+id/action_categoryProductsFragment_to_foodDetailFragment"
+            app:destination="@id/foodDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="com.quick.freshfoodgo.fragment.FoodDetailFragment"
+        android:label="FoodDetailFragment" >
+        <action
+            android:id="@+id/action_foodDetailFragment_to_home_page"
+            app:destination="@id/home_page" />
+    </fragment>
 </navigation>

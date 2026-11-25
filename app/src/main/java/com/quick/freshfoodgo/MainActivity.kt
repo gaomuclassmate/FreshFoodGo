@@ -1,11 +1,7 @@
 package com.quick.freshfoodgo
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.quick.freshfoodgo.base.BaseActivity
@@ -17,6 +13,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         return ActivityMainBinding.inflate(layoutInflater)
     }
 
+    private val mainDestinations = setOf(
+        R.id.home_page,
+        R.id.found_page,
+        R.id.buy_car_page,
+        R.id.collect_page,
+        R.id.me_page
+    )
+
     override fun initView() {
         super.initView()
         val navHostFragment =
@@ -25,5 +29,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.bottomNav.setupWithNavController(navController)
         //bottomNav设置颜色为我自己设置的
         binding.bottomNav.itemIconTintList = null
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.bottomNav.visibility =
+                if (destination.id in mainDestinations) View.VISIBLE else View.GONE
+
+
+        }
     }
 }

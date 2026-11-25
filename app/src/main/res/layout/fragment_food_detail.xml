@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/product_img"
+            android:layout_width="match_parent"
+            android:layout_height="371dp"
+            android:background="@drawable/product_display_bg"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/imgloading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="红苹果"
+            android:textColor="#181725"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_img"
+            app:layout_constraintVertical_bias="0.058" />
+
+        <TextView
+            android:id="@+id/single_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="@string/single_price"
+            android:textColor="#7C7C7C"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:layout_marginRight="24dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/not_like"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/product_img" />
+
+        <LinearLayout
+            android:id="@+id/llayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="@id/single_price"
+            app:layout_constraintTop_toBottomOf="@+id/single_price">
+
+            <ImageView
+                android:id="@+id/reduce"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/reduce" />
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/count_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#181725"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="58dp" />
+
+            <ImageView
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/add" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥8.99"
+                android:textColor="#181725"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="20dp"
+            android:background="#E2E2E2"
+            app:layout_constraintStart_toStartOf="@id/single_price"
+            app:layout_constraintTop_toBottomOf="@+id/llayout" />
+
+        <LinearLayout
+            android:id="@+id/ll_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="18dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/view1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品详情"
+                    android:textColor="#181725"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/arrow_bottom" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="22dp"
+                android:textSize="13dp"
+                android:textColor="#7C7C7C"
+                android:text="苹果营养丰富，苹果可能有助于减肥，苹果可能对你的心脏有益，作为健康和多样化的饮食的一部分."/>
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="28dp"
+            android:background="#E2E2E2"
+            app:layout_constraintStart_toStartOf="@id/single_price"
+            app:layout_constraintTop_toBottomOf="@+id/ll_detail" />
+
+        <LinearLayout
+            android:id="@+id/ll_nutrition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="18dp"
+            android:layout_marginHorizontal="28dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/view2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="营养成分"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#181725"/>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="34dp"
+                android:layout_height="18dp"
+                android:gravity="center"
+                android:textSize="9dp"
+                android:text="100g"
+                android:background="@drawable/nutrition_bg"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/arrow_right"/>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginHorizontal="28dp"
+            android:text="@string/add_car"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#FFF9FF"
+            android:background="@drawable/add_car_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="18sp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/tool_bar" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

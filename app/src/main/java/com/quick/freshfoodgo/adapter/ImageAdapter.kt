@@ -3,37 +3,38 @@ package com.quick.freshfoodgo.adapter
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.quick.freshfoodgo.R
 import com.quick.freshfoodgo.bean.BannerDataBean
 import com.youth.banner.adapter.BannerAdapter
 
-class ImageAdapter(mDatas: MutableList<BannerDataBean?>?) : BannerAdapter<BannerDataBean?, ImageAdapter.BannerViewHolder?>(mDatas) {
+class ImageAdapter(
+    data: MutableList<BannerDataBean> = mutableListOf()
+) : BannerAdapter<BannerDataBean, ImageAdapter.BannerViewHolder>(data) {
 
-
-    //创建ViewHolder，可以用viewType这个字段来区分不同的ViewHolder
     override fun onCreateHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
-        val imageView = ImageView(parent.getContext())
-
-        imageView.setLayoutParams(
-            ViewGroup.LayoutParams(
+        val imageView = ImageView(parent.context).apply {
+            layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
-        )
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP)
+            scaleType = ImageView.ScaleType.CENTER_CROP
+        }
         return BannerViewHolder(imageView)
     }
 
     override fun onBindView(
         holder: BannerViewHolder?,
         data: BannerDataBean?,
-        position : Int,
-        size : Int
+        position: Int,
+        size: Int
     ) {
-        holder?.imageView?.setImageResource(data!!.imageRes);
+        holder?.imageView?.load(data?.imageUrl.orEmpty()) {
+            placeholder(R.mipmap.banner1)
+            error(R.mipmap.banner1)
+            crossfade(false)
+        }
     }
 
-
-    class BannerViewHolder(var imageView: ImageView) : RecyclerView.ViewHolder(
-        imageView
-    )
+    class BannerViewHolder(val imageView: ImageView) : RecyclerView.ViewHolder(imageView)
 }

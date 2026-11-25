@@ -2,32 +2,21 @@ package com.quick.freshfoodgo
 
 import android.app.Application
 import android.content.Context
-import io.github.jan.supabase.createSupabaseClient
-import io.github.jan.supabase.postgrest.Postgrest
+import com.tencent.mmkv.MMKV
+
 
 class AppContext: Application() {
 
     override fun onCreate() {
         super.onCreate()
         instance = applicationContext
-
-        initSuperbase()
+        MMKV.initialize(this)
 
     }
 
-    private fun initSuperbase() {
-
-        val supabase = createSupabaseClient(
-            supabaseUrl = "https://tjayvthjutczkqaknrkc.supabase.co",
-            supabaseKey = "sb_publishable_BOjTOh03IV-GfwzGtJRFpw_pgQxpQBo"
-        ) {
-            install(Postgrest)
-        }
-    }
 
     companion object {
         lateinit var instance: Context
-
 
     }
 }

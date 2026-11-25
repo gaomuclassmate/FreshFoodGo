@@ -1,9 +1,8 @@
-package com.quick.freshfoodgo.adapter
+package com.quick.freshfoodgo.adapter.decoration
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-
 
 /**
  * 水平间距

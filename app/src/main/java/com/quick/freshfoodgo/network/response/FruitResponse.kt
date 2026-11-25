@@ -1,4 +1,4 @@
-package com.quick.freshfoodgo.database
+package com.quick.freshfoodgo.network.response
 
 import com.quick.freshfoodgo.bean.FruitBean
 

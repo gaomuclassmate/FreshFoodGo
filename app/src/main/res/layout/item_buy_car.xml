@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp"
+    android:orientation="vertical">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#E7E7E7"/>
+    
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="132dp"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal">
+        
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="71dp"
+            android:layout_height="65dp"
+            android:src="@mipmap/imgloading"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="34dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="红辣椒"
+                android:textSize="16sp"
+                android:theme="@style/bold_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1kg,价格"
+                android:textSize="16sp"
+                />
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/reduce"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/reduce" />
+
+                <TextView
+                    android:id="@+id/count"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/count_bg"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#181725"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/add"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/add" />
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+        
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥0.00"
+            android:textSize="18sp"
+            android:theme="@style/bold_text"/>
+        
+        
+    </LinearLayout>
+
+</LinearLayout>

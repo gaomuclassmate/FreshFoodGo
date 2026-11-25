@@ -9,14 +9,16 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.quick.freshfoodgo.MainActivity
 import com.quick.freshfoodgo.R
 import com.quick.freshfoodgo.base.BaseActivity
 import com.quick.freshfoodgo.databinding.ActivityGuideBinding
+import com.quick.freshfoodgo.util.TokenUtil
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-class GuideActivity: BaseActivity<ActivityGuideBinding>() {
+class GuideActivity : BaseActivity<ActivityGuideBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge(
@@ -34,7 +36,15 @@ class GuideActivity: BaseActivity<ActivityGuideBinding>() {
     private fun waitEnter() {
         lifecycleScope.launch {
             delay(2000)
-            val intent = Intent(this@GuideActivity, LoginActivity::class.java)
+            //判断当前token是否过期
+            val expired = TokenUtil.isAccessTokenExpired()
+            var intent: Intent
+            if (!expired) {
+                 intent = Intent(this@GuideActivity, MainActivity::class.java)
+            } else {
+                 intent = Intent(this@GuideActivity, LoginActivity::class.java)
+
+            }
             startActivity(intent)
             finish()
 
