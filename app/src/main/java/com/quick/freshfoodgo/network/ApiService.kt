@@ -1,5 +1,6 @@
 package com.quick.freshfoodgo.network
 
+import com.quick.freshfoodgo.network.cloudbase.AddProductCarRequest
 import com.quick.freshfoodgo.network.cloudbase.CloudBaseAuthResponse
 import com.quick.freshfoodgo.network.cloudbase.CloudBaseRefreshTokenRequest
 import com.quick.freshfoodgo.network.cloudbase.CloudBaseSignInRequest
@@ -16,6 +17,7 @@ import com.quick.freshfoodgo.network.cloudbase.ProductCategoryDto
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -111,4 +113,11 @@ interface ApiService {
         @Query("is_active") isActive: String = "eq.true",
         @Query("limit") limit: Int = 1
     ): List<HomeOfferDto>
+
+    @POST("v1/rdb/rest/cart_items")
+    suspend fun addProductCar(
+        @Body request: AddProductCarRequest,
+        @Header("Prefer") prefer: String = "return=minimal"
+    ): Response<Unit>
+
 }

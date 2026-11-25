@@ -13,7 +13,8 @@ import kotlinx.coroutines.launch
 data class FoodDetailUiState(
     val loading: Boolean = false,
     val detail: FoodDetailBean = FoodDetailBean(),
-    val error: String? = null
+    val error: String? = null,
+    var addCartSuccess: Boolean? = null
 )
 
 class FoodDetailViewModel(
@@ -83,6 +84,25 @@ class FoodDetailViewModel(
         _uiState.update { state ->
             state.copy(
                 detail = state.detail.copy(isLike = !state.detail.isLike)
+            )
+        }
+    }
+
+    fun addProductCar(foodId: String, quantity: Int = 1) {
+        _uiState.update { it.copy(addCartSuccess = null, error = null) }
+        viewModelScope.launch {
+            repository.addBuyCar(foodId, quantity).fold(
+                onSuccess = {
+                    _uiState.update { it.copy(addCartSuccess = true) }
+                },
+                onFailure = { error ->
+                    _uiState.update {
+                        it.copy(
+                            addCartSuccess = false,
+                            error = error.message ?: "添加购物车失败"
+                        )
+                    }
+                }
             )
         }
     }

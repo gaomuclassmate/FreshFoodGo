@@ -20,6 +20,7 @@ class FruitAdapter: RecyclerView.Adapter<FruitAdapter.MyViewHolder>() {
     private var list: List<FruitBean> = emptyList()
     private var clickListener: OnClickListener? = null
 
+
     fun setData(newList: List<FruitBean>) {
         list = newList
         notifyDataSetChanged()
@@ -59,6 +60,8 @@ class FruitAdapter: RecyclerView.Adapter<FruitAdapter.MyViewHolder>() {
         holder.binding.price.text = beanItem.priceText()
         holder.binding.addCar.setOnClickListener { it: View? ->
             //加入到购物车
+
+
 
         }
         holder.binding.root.setOnClickListener { it: View? ->

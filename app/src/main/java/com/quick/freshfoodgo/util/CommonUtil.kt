@@ -10,4 +10,7 @@ object CommonUtil {
         val context1 = context.applicationContext
         Toast.makeText(context1,text,if (isShort) Toast.LENGTH_SHORT else Toast.LENGTH_LONG ).show()
     }
+
+
+
 }

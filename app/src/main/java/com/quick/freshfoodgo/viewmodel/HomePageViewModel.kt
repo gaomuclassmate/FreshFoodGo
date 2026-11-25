@@ -4,8 +4,11 @@ import androidx.lifecycle.viewModelScope
 import com.quick.freshfoodgo.base.BaseViewModel
 import com.quick.freshfoodgo.bean.BannerDataBean
 import com.quick.freshfoodgo.bean.FruitBean
+import com.quick.freshfoodgo.network.MyRetrofit
+import com.quick.freshfoodgo.network.cloudbase.AddProductCarRequest
 import com.quick.freshfoodgo.network.repository.BannerRepo
 import com.quick.freshfoodgo.network.repository.FruitRepo
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -23,6 +26,7 @@ class HomePageViewModel : BaseViewModel() {
 
     private val repository = FruitRepo()
     private val bannerRepository = BannerRepo()
+    private val apiService = MyRetrofit.apiService
     private val _uiState = MutableStateFlow(HomePageUiState())
     val uiState: StateFlow<HomePageUiState> = _uiState.asStateFlow()
 
@@ -57,4 +61,7 @@ class HomePageViewModel : BaseViewModel() {
             )
         }
     }
+
+
+
 }

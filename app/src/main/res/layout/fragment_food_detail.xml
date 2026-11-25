@@ -223,6 +223,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/add_buy_car"
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:layout_marginHorizontal="28dp"

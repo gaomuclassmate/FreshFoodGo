@@ -5,6 +5,7 @@ import com.quick.freshfoodgo.bean.FruitBean
 import com.quick.freshfoodgo.network.ApiException
 import com.quick.freshfoodgo.network.ApiService
 import com.quick.freshfoodgo.network.MyRetrofit
+import com.quick.freshfoodgo.network.cloudbase.AddProductCarRequest
 import com.quick.freshfoodgo.network.cloudbase.HomeFeedData
 import kotlinx.coroutines.CancellationException
 import retrofit2.HttpException
@@ -102,4 +103,47 @@ class FruitRepo(
             Result.failure(ApiException(message = e.message ?: "商品详情加载失败", cause = e))
         }
     }
+
+
+    suspend fun addBuyCar(foodId: String,quantity: Int):Result<Unit>{
+        return try {
+            val response = api.addProductCar(AddProductCarRequest(foodId, quantity))
+            if (response.isSuccessful) {
+                Result.success(Unit)
+            } else {
+                val errorBodyStr = response.errorBody()?.string()
+
+                val errorMsg = if (!errorBodyStr.isNullOrBlank()) {
+                    errorBodyStr
+                } else {
+                    "请求失败，code:${response.code()}"
+                }
+                Result.failure(
+                    ApiException(
+                        statusCode = response.code(),
+                        message = errorMsg
+                    )
+                )
+            }
+        } catch (e: HttpException) {
+            // Retrofit 非2xx抛HttpException场景（接口定义直接返回T而不是Response<T>才会进这里）
+            Result.failure(
+                ApiException(
+                    statusCode = e.code(),
+                    message = "服务异常，code:${e.code()}",
+                    cause = e
+                )
+            )
+        } catch (e: IOException) {
+            // 断网、超时、SSL错误
+            Result.failure(ApiException(message = "网络连接失败，请检查网络后重试", cause = e))
+        } catch (e: Exception) {
+            // 解析异常、其他未知异常
+            Result.failure(ApiException(message = "请求异常：${e.message}", cause = e))
+        }
+
+
+    }
+
+
 }
